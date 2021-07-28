@@ -112,7 +112,9 @@ class BinaryMaskList(object):
 
     def transpose(self, method):
         dim = 1 if method == FLIP_TOP_BOTTOM else 2
-        flipped_masks = self.masks.flip(dim)
+        #flipped_masks = self.masks.flip(dim)
+        inv_idx = torch.arange(self.masks.size(dim)-1, -1, -1).long()
+        flipped_masks = self.masks.index_select(dim, inv_idx)
         return BinaryMaskList(flipped_masks, self.size)
 
     def crop(self, box):
