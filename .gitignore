@@ -4,6 +4,9 @@ _ext
 *.pyc
 *.so
 maskrcnn_benchmark.egg-info/
+cocoapi/
+cityscapesScripts/
+apex/
 build/
 dist/
 
@@ -36,3 +39,6 @@ dist/
 /models
 /output
 /runs
+
+# etc
+script
